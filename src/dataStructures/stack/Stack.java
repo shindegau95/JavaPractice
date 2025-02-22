@@ -10,27 +10,6 @@ public class Stack {
         this.arr = new int[size];
     }
 
-    public void push(int n){
-        if(top == arr.length){
-            throw new StackOverflowError("Stack overflow");
-        }
-        arr[++top] = n;
-    }
-
-    public int pop(){
-        if(top == -1){
-            throw new EmptyStackException();
-        }
-        //also need to delete that element
-        int x = arr[top];
-        arr[top--] = 0;
-        return x;
-    }
-
-    public boolean isEmpty(){
-        return top == -1;
-    }
-
     public static void main(String[] args) {
         Stack stack = new Stack(5); // Creating a stack of size 5
 
@@ -47,6 +26,27 @@ public class Stack {
 
         // Checking if the stack is empty
         System.out.println("Is stack empty? " + stack.isEmpty());
+    }
+
+    public void push(int n) {
+        if (top == arr.length) {
+            throw new StackOverflowError("Stack overflow");
+        }
+        arr[++top] = n;
+    }
+
+    public int pop() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
+        //also need to delete that element
+        int x = arr[top];
+        arr[top--] = 0;
+        return x;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
     }
 }
 
