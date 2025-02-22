@@ -13,14 +13,14 @@ public class Knapsack {
     private static int knapsack(int n, int w, int[] profit, int[] wt) {
         if(n == 0 || w == 0){
             return 0;
-        }else{
-            if(wt[n-1] > w){
-                return knapsack(n-1, w, profit, wt);
-            }else{
-                int opt1 = profit[n-1] + knapsack(n-1, w-wt[n-1], profit, wt);
-                int opt2 = knapsack(n-1, w, profit, wt);
-                return Math.max(opt1, opt2);
-            }
+        }
+        if(wt[n-1] > w){
+            return knapsack(n-1, w, profit, wt);
+        }
+        else{
+            int opt1 = profit[n-1] + knapsack(n-1, w-wt[n-1], profit, wt);
+            int opt2 = knapsack(n-1, w, profit, wt);
+            return Math.max(opt1, opt2);
         }
     }
 }

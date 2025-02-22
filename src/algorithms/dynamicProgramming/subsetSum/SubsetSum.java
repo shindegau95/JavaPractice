@@ -1,4 +1,4 @@
-package algorithms.dynamicProgramming.subsetSum.recursive;
+package algorithms.dynamicProgramming.subsetSum;
 
 public class SubsetSum {
     public static void main(String[] args) {
