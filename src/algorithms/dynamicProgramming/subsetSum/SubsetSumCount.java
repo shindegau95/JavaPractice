@@ -6,6 +6,7 @@ public class SubsetSumCount {
     * Given an array and sum, count the number of subsets whose sum is as given
     * input: [2,3,5,6,8,10]
     * sum: 10
+    * output: 3
     * */
 
     public static void main(String[] args) {
