@@ -1,6 +1,6 @@
-package algorithms.dynamicProgramming.knapsack.recursive;
+package algorithms.dynamicProgramming.subsetSum;
 
-public class Knapsack {
+public class UnboundedKnapsack {
     public static void main(String[] args) {
         int n = 5;
         int w = 4;
@@ -13,14 +13,14 @@ public class Knapsack {
     private static int knapsack(int n, int w, int[] profit, int[] wt) {
         if(n == 0 || w == 0){
             return 0;
-        }
-        if(wt[n-1] > w){
-            return knapsack(n-1, w, profit, wt);
-        }
-        else{
-            int opt1 = profit[n-1] + knapsack(n, w-wt[n-1], profit, wt);
-            int opt2 = knapsack(n-1, w, profit, wt);
-            return Math.max(opt1, opt2);
+        }else{
+            if(wt[n-1] < w){
+                int opt1 = knapsack(n-1, w, profit, wt);
+                int opt2 = profit[n-1] + knapsack(n-1, w, profit, wt);
+                return Math.max(opt1, opt2);
+            }else{
+                return knapsack(n-1, w, profit, wt);
+            }
         }
     }
 }
