@@ -1,4 +1,4 @@
-package algorithms.dynamicProgramming.subsetSum;
+package algorithms.dynamicProgramming.unboundedKnapsack;
 
 public class UnboundedKnapsack {
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class UnboundedKnapsack {
         }else{
             if(wt[n-1] < w){
                 int opt1 = knapsack(n-1, w, profit, wt);
-                int opt2 = profit[n-1] + knapsack(n-1, w, profit, wt);
+                int opt2 = profit[n-1] + knapsack(n, w-wt[n-1],  profit, wt);
                 return Math.max(opt1, opt2);
             }else{
                 return knapsack(n-1, w, profit, wt);
